@@ -3,7 +3,7 @@
 ###########################################################
 
 ## Load the data from text file to memory
-data <- read.table('household_power_consumption.txt',header = TRUE, sep = ";" ,na.strings = "?", stringsAsFactors= TRUE)
+data <- read.table('/R/workspace/household_power_consumption.txt',header = TRUE, sep = ";" ,na.strings = "?", stringsAsFactors= TRUE)
 
 ## subset the data
 subdata <- subset(data, as.Date(Date, format = "%d/%m/%Y") >=  as.Date("1/2/2007", format = "%d/%m/%Y") & as.Date(Date, format = "%d/%m/%Y") < as.Date("3/2/2007", format = "%d/%m/%Y"))
@@ -12,6 +12,6 @@ subdata <- subset(data, as.Date(Date, format = "%d/%m/%Y") >=  as.Date("1/2/2007
 globalAP <- as.numeric(subdata$Global_active_power)
 
 ## Start the plot and set respective parameters 
-png(file="plot1.png",width=480, height=480)
+png(file="plot1.png",width=480, height=480, bg="transparent")
 hist(globalAP, col='red', xlab="Global Active Power (kilowatts)",main="Global Active Power")
 dev.off()

@@ -3,7 +3,7 @@
 ###########################################################
 
 ## Load the data from text file to memory
-data <- read.table('household_power_consumption.txt',header = TRUE, sep = ";" ,na.strings = "?", stringsAsFactors= TRUE)
+data <- read.table('/R/workspace/household_power_consumption.txt',header = TRUE, sep = ";" ,na.strings = "?", stringsAsFactors= TRUE)
 
 ## subset the data in memory
 subdata <- subset(data, as.Date(Date, format = "%d/%m/%Y") >=  as.Date("1/2/2007", format = "%d/%m/%Y") & as.Date(Date, format = "%d/%m/%Y") < as.Date("3/2/2007", format = "%d/%m/%Y"))
@@ -22,7 +22,7 @@ subM2 <- as.numeric(subdata$Sub_metering_2)
 subM3 <- as.numeric(subdata$Sub_metering_3)
 
 ## Direct the graphics device to png image
-png("plot3.png", width=480, height=480)
+png("plot3.png", width=480, height=480, bg="transparent")
 
 ## Start the plot and set respective parameters 
 plot(datetime, subM1, type="l", ylab="Energy Submetering", xlab="", col= color[1])
